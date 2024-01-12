@@ -1,22 +1,19 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { toDoListComponent } from './todo-list/todo-list.component';
-import { BorderHighlightDirective } from './border-highlight.directive';
-
+import {TodoList_Component} from './todo-list/todo-list.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, toDoListComponent, BorderHighlightDirective],
-  template:`
-    
-
-      <div class = "container">
-        <todo-list />
-      </div>
-  `
-  ,
+  imports: [CommonModule, RouterOutlet,  TodoList_Component],
+  template: `
+  <todo-list/>
+  `,
   styles: []
 })
-export class AppComponent {}
+
+export class AppComponent {
+  constructor(){ }
+
+}
