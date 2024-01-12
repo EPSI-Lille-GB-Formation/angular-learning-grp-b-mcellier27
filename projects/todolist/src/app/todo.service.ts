@@ -31,7 +31,7 @@ export class TodoService{
     }
 
     getTodoById(todoId: number): Observable<Todo>{
-        return this.http.get<Todo>(`$(this.todoUrl)/:${todoId}`).pipe(
+        return this.http.get<Todo>(`${this.todosUrl}/${todoId}`).pipe(
             catchError(error => {
                 console.log(error);
                 return of();

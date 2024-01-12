@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Todo } from '../todo';
 import { CommonModule } from '@angular/common';
 import { BorderHighlightDirective } from '../border-highlight.directive';
+import { Route } from '@angular/router';
+import { Router } from 'express';
 
 @Component({
   selector: 'todo',
@@ -15,7 +17,9 @@ import { BorderHighlightDirective } from '../border-highlight.directive';
         </label>
         <div class="action">
           <a href="#">Edit</a>
+          <a href= # role =  "button" (click)="onView">Retour à l'accueil</a>
           <a href="#">Delete</a>
+          
         </div>
       </div>
     </article>
@@ -38,10 +42,16 @@ export class TodoComponent {
   @Input("value")
   todo: Todo | undefined;
 
+  constructor(private router: Router)
+
   onCheck() {
     if(this.todo) {
       this.todo.isCompleted = !this.todo?.isCompleted
       console.table(this.todo)
     }
+  }
+
+  onView(){
+    
   }
 }

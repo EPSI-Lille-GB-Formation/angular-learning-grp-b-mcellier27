@@ -8,12 +8,16 @@ import {TodoList_Component} from './todo-list/todo-list.component'
   standalone: true,
   imports: [CommonModule, RouterOutlet,  TodoList_Component],
   template: `
-  <todo-list/>
+  <div class="container">
+  <!--envoie vers 'app.routes'
+-->
+  <router-outlet></router-outlet>
+  </div>
   `,
   styles: []
 })
 
 export class AppComponent {
-  constructor(){ }
+  
 
 }
