@@ -1,0 +1,32 @@
+<div class="grid" *ngIf="(currentUserId$ | async) === bookRead?.user">
+    <button (click)="goToUpdatePage(bookRead?.id)">Modifier</button>
+    <button (click)="goToDeletePage(bookRead?.id)">Supprimer</button>
+</div>
+<div>
+    <h2>Informations sur le livre:</h2>
+    <article>
+        <div class="grid">
+            <div>
+                <img [src]="bookRead?.image" />
+            </div>
+            <div>
+                <label>Titre: {{bookRead?.title}}</label>
+                <label>Auteur: {{ authorName$ | async }} {{ authorFirstName$ | async }}</label>
+                <label>Catégories: </label>
+                <ul *ngIf="categoriesLabels$ | async as categories">
+                    <li *ngFor="let category of categories">{{ category }}</li>
+                </ul>
+                <label>Date de création: {{bookRead?.createdAt | date: 'dd MMMM yyyy'}}</label>
+                <label>Dernière mise à jour: {{bookRead?.updatedAt | date: 'dd MMMM yyyy'}}</label>
+            </div>
+        </div>
+        <label>Résumé:</label>
+        <p>{{bookRead?.resume}}</p>
+    </article>
+</div>
+<!-- Affichage de la liste des pages -->
+<div>
+    <ng-container>
+        <app-book-read></app-book-read>
+    </ng-container>
+</div>

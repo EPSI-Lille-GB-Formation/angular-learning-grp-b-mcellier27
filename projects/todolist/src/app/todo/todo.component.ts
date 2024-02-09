@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Todo } from '../todo';
 import { CommonModule } from '@angular/common';
 import { BorderHighlightDirective } from '../border-highlight.directive';
-import { Route } from '@angular/router';
-import { Router } from 'express';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'todo',
@@ -42,7 +42,7 @@ export class TodoComponent {
   @Input("value")
   todo: Todo | undefined;
 
-  constructor(private router: Router)
+  constructor(private router : Router){}
 
   onCheck() {
     if(this.todo) {
@@ -52,6 +52,6 @@ export class TodoComponent {
   }
 
   onView(){
-    
+    this.router.navigate(['']);
   }
 }

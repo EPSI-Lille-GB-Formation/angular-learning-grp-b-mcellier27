@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TodoComponent } from '../todo/todo.component';
 import { TodoService } from '../todo.service';
 import { Todo } from '../todo';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from 'express';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'task',
@@ -42,7 +42,7 @@ export class TaskComponent {
   }
 
   goToHomePage() {
-    this.router.navigate(['']);
+  this.router.navigate(['']);
   }
   
 }
